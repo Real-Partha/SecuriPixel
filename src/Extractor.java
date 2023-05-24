@@ -66,7 +66,7 @@ public class Extractor
 		String outFileName = HeaderManager.getName(header);
 		System.out.println("Embedded file "+outFileName+" found ");
 
-		File outFile = new File("Restored/restored_"+outFileName);
+		File outFile = new File("..\\Restored\\restored_"+outFileName);
 		FileOutputStream fout = new FileOutputStream(outFile);
 
 		int fileLengthRemaining = HeaderManager.getLength(header);
