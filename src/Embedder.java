@@ -137,7 +137,7 @@ class Embedder
                 String originalFileName = originalFile.getName();
                 newFileName = "Output_"+originalFileName;
 
-                String newFilePath = "D:\\Local Files\\SRM AP All Documents\\College Files\\Semester - IV\\Java Lab\\SecuriPixel\\Embedded" + File.separator + newFileName;
+                String newFilePath = "..\\Embedded" + File.separator + newFileName;
 
                 File newFile = new File(newFilePath);
 
@@ -157,7 +157,7 @@ class Embedder
 			String secretImagePath = sc.nextLine();
 			File inputFile = new File(inputImagePath);
 			File secretFile = new File(secretImagePath);
-			File outputFile = new File("D:\\Local Files\\SRM AP All Documents\\College Files\\Semester - IV\\Java Lab\\SecuriPixel\\Embedded"+File.separator+newFileName);
+			File outputFile = new File("..\\Embedded"+File.separator+newFileName);
 			sc.close();
 			new Embedder(inputFile, secretFile, outputFile).embedd();
 
