@@ -18,11 +18,11 @@ class Embedder
 
 		if(inputFile.exists() == false) 
 		{
-			throw new Exception("Source file doesn't exists");
+			throw new Exception("Source file doesn't exist!!!");
 		} 
 		else if(secretFile.exists() == false) 
 		{
-			throw new Exception("message file doesn't exists");
+			throw new Exception("Secret file doesn't exist!!!");
 		}
 
 		this.inputFile = inputFile;
@@ -54,17 +54,18 @@ class Embedder
    		if(inputHeight*inputWidth < secretFile.length()+n)
 		{
 			fin.close();
-			throw new Exception("insufficient Size");
+			throw new Exception("Input image is too small to hold the secret file!!!");
 		}
-   		System.out.println("Vessel Capacity :: "+inputHeight*inputWidth);
-   		System.out.println("Data File Size :: "+secretFile.length());
-		System.out.println("Header Bytes Length :: "+n);
+   		System.out.println("Input Capacity :: "+inputHeight*inputWidth);
+   		System.out.println("Secret File Size :: "+secretFile.length());
+		System.out.println("Header Bytes Length (File Name and Associated Attributes) :: "+n);
 
    		WritableRaster raster = inputImage.getRaster();
 
-   		for( x=0; x < inputWidth; x++ ){
-   			for( y=0; y < inputHeight; y++ ){
-
+   		for( x=0; x < inputWidth; x++ )
+		{
+   			for( y=0; y < inputHeight; y++ )
+			{
    				if(k == n)
 				{
    					System.out.println("HeaderBreak :: "+x+" "+y);
@@ -80,7 +81,8 @@ class Embedder
 				raster.setSample(x, y,2, updatedBytes[2]);
 
    			}
-   			if(finished)break;
+   			if(finished)
+				break;
    		}
 
    		finished = false;
@@ -129,10 +131,9 @@ class Embedder
 			Scanner sc = new Scanner(System.in);
 			System.out.print("Enter the Input Image Path : ");
 			String inputImagePath = sc.nextLine();
-			// inputImagePath = inputImagePath.replace("\\", "\\\\");
 			File originalFile = new File(inputImagePath);
-			if (originalFile.exists()) {
-                // String directory = originalFile.getParent();
+			if (originalFile.exists()) 
+			{
                 String originalFileName = originalFile.getName();
                 newFileName = "Output_"+originalFileName;
 
@@ -152,14 +153,8 @@ class Embedder
                 fileInputStream.close();
                 fileOutputStream.close();
             } 
-			else 
-			{
-                System.out.println("File does not exist.");
-            }
 			System.out.print("Enter the Secret Image File Path : ");
 			String secretImagePath = sc.nextLine();
-			// System.out.print("Enter the Output Image File Path : ");
-			// String outputImagePath = sc.nextLine();
 			File inputFile = new File(inputImagePath);
 			File secretFile = new File(secretImagePath);
 			File outputFile = new File("D:\\Local Files\\SRM AP All Documents\\College Files\\Semester - IV\\Java Lab\\SecuriPixel\\Embedded"+File.separator+newFileName);

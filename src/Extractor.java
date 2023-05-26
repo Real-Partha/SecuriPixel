@@ -24,7 +24,7 @@ public class Extractor
 
 		BufferedImage inputImage = ImageIO.read(inputFile);
 
-		System.out.println("Verifying source file.........");
+		System.out.println("Verifying source file.........(usign header)");
 
 		int width = inputImage.getWidth();
 		int height = inputImage.getHeight();
