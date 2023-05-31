@@ -1,3 +1,6 @@
+//The "ByteManager" class provides functionality for embedding and extracting data within an array of integers using bit manipulation techniques. 
+//It introduces a flag-based approach to determine the embedding pattern, allowing flexibility to change the flag value and pattern strategy. 
+//The class offers methods to embed alien data into native data and retrieve the embedded data, ensuring seamless integration and extraction of information.
 public class ByteManager {
 
 	static private int flag = 0;
